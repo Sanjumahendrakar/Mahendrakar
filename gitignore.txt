@@ -4,6 +4,6 @@
 /.classpath
 .DS_Store
 
-.idea
+.eclipse
 *.iml
 *.iws
