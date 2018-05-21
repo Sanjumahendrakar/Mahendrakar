@@ -1,0 +1,110 @@
+http://programmingandaptitude.blogspot.in/2015/07/zoho-interview-questions-and-answer.html
+
+
+www.linkedin.com/in/sanju-m-0b2b30142
+
+heck whether a given mathematical expression is valid.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+int top = -1;
+char stack[100];
+ 
+// function prototypes
+void push(char);
+void pop();
+void find_top();
+ 
+void main()
+{
+	int i;
+	char a[100];
+	printf("enter expression\n");
+	scanf("%s", &a);
+	for (i = 0; a[i] != '\0';i++)
+	{
+		if (a[i] == '(')
+		{
+			push(a[i]);
+		}
+		else if (a[i] == ')')
+		{
+			pop();
+		}
+	}
+	find_top();
+}
+ 
+// to push elements in stack
+void push(char a)
+{
+	stack[top] = a;
+	top++;
+}
+ 
+// to pop elements from stack
+void pop()
+{
+	if (top == -1)
+	{
+		printf("expression is invalid\n");
+		exit(0);
+	}	
+	else
+	{		
+		top--;
+	}
+}
+ 
+// to find top element of stack
+void find_top()
+{
+	if (top == -1)
+		printf("\nexpression is valid\n");
+	else
+		printf("\nexpression is invalid\n");
+}
+Program Explanatio
+
+
+
+
+
+
+2) Remove unbalanced parentheses in a given expression.
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char string[20];
+    int iteration,length_of_string,iteration1,count=0,t,temp[10],j;
+    scanf("%s",string);
+    length_of_string=strlen(string);
+    for(iteration=1;iteration<length_of_string-1;iteration++){
+        if(string[iteration]=='('){
+            temp[count]=iteration;
+            count++;
+        }
+        if(string[iteration]==')')
+        {
+         if(count!=0)
+             count--;
+         else
+         {
+          temp[count]=iteration;
+          count++;
+         }
+        }
+    }
+  
+    for(iteration=0;iteration<length_of_string;iteration++){
+     int flag=0;
+     for(j=0;j<count;j++)
+     if(iteration==temp[j])
+     flag=1;
+     if(flag==0)
+            printf("%c",string[iteration]);
+        }
+    
+    return 0;
+}
